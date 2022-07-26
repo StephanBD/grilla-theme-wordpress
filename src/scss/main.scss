@@ -1,0 +1,178 @@
+@use "sass:math";
+
+$wordpressEditor: ".is-desktop-preview";
+
+// #{$wordpressEditor} {
+// @import "0_reset/minireset.scss";
+@import "defaultVariables.scss";
+// @import "settings.scss";
+//-----------------------------------------------------//
+@import "settings/functions";
+@import "settings/maps";
+@import "settings/mixins";
+
+@import "settings/base";
+@import "settings/forms";
+@import "settings/dark-mode";
+@import "settings/buttons";
+@import "settings/toggles";
+
+//-----------------------------------------------------//
+// @import "components.scss";
+@import "components/animation";
+@import "components/components";
+@import "components/flipcard";
+@import "components/navbar";
+@import "components/profile";
+@import "components/sidebar";
+@import "components/toggle-menu";
+@import "components/cards";
+@import "components/zoomefect";
+@import "components/mockups";
+
+//-----------------------------------------------------//
+// @import "layout.scss";
+@import "layout/columns";
+@import "layout/flex-2";
+@import "layout/grid";
+@import "layout/col";
+@import "layout/layout";
+
+//-----------------------------------------------------//
+@import "wordpress.scss";
+//-----------------------------------------------------//
+// @import "utilities.scss";
+@import "utilities/background-colors";
+@import "utilities/border";
+@import "utilities/margin-padding";
+@import "utilities/utilities";
+// @import "utilities/filter";
+@import "utilities/images";
+@import "utilities/modal";
+@import "utilities/shadow";
+@import "utilities/shapes";
+// @import "utilities/transform";
+@import "utilities/width-height";
+@import "utilities/typography";
+@import "utilities/alignment";
+
+//-----------------------------------------------------//
+@import "debug.scss";
+//-----------------------------------------------------//
+// }
+
+// is-desktop-preview
+
+// editor-styles-wrapper
+// block-editor-writing-flow
+
+.arizona-img {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: 0;
+  height: 50%;
+  width: 100%;
+  @include from($lg) {
+    height: 100%;
+    // width: 90%;
+    top: 0;
+    // right: 50%;
+  }
+}
+
+.arizona-logo {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+}
+
+.arizona-body {
+  // flex-6-lg
+  @include bg-(white);
+  @include p-($padding * 3);
+  @include from($xl) {
+    @include px-($padding * 14);
+  }
+  @include from($lg) {
+    //  @include bg-(white);
+    background: transparent;
+    @include py-($padding * 7);
+    @include flex-12(6);
+    background: linear-gradient(
+      90deg,
+      Var(white) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
+.arizona-form {
+  background: rgba(29, 26, 26, 0.788);
+}
+.arizona-form-content {
+  //   box-shadow: inset 150px 0 50px -50px white;
+  @include p-($padding * 3);
+
+  @include from($lg) {
+    @include p-($padding * 5);
+    @include flex-12(6);
+  }
+  @include from(1718px) {
+    @include flex-12(4);
+  }
+}
+
+.banner {
+  --yellow: #f1ca2f;
+  --yellow-dark: #a08303;
+  // content-xl-m
+  max-width: 1920px;
+  @include mx-(auto);
+}
+
+.arizona-flag {
+  // -mx-3 mb-2 t-center bg-yellow bold p t-dark
+  @include p-($padding);
+  @include mb-($margin * 2);
+  @include mx-(-1 * ($margin * 3));
+  @include t-(dark);
+  @include bg-(yellow);
+  font-weight: bold;
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    display: block;
+    //  width: $margin * 3;
+    //  height: $margin * 3;
+    content: "";
+    //  @include bg-(yellow-dark);
+
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 ($margin * 3) ($margin * 3);
+    border-color: transparent transparent Var(yellow-dark) transparent;
+  }
+  &::after {
+    left: auto;
+    right: 0;
+
+    border-width: ($margin * 3) 0 0 ($margin * 3);
+    border-color: transparent transparent transparent Var(yellow-dark);
+  }
+}
+
+.arizona-line {
+  // b-yellow b-2 .
+  //   @include b-();
+  border: 2px solid Var(yellow);
+
+  @include from($xl) {
+    transform: scaleX(1.5);
+    transform-origin: right;
+  }
+}

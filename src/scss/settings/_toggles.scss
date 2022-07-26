@@ -1,0 +1,23 @@
+//-------------------hide----------------------------------//
+.hide,
+.hidden {
+  // display: none !important;
+  @include breakpointMaker(true) {
+    display: none !important;
+  }
+}
+.show {
+  @include breakpointMakerTo(true) {
+    display: none !important;
+
+    &-block {
+      display: block !important;
+    }
+    &-flex {
+      display: flex !important;
+    }
+    &-grid {
+      display: grid !important;
+    }
+  }
+}

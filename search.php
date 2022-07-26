@@ -1,0 +1,24 @@
+<?php
+ get_header('', array('main' => 'flex-8-md grow-1 p')); ?>
+<h1>searchxxxx</h1>
+<div class="content-m flex flex-gap-2 my-4">
+	<main id="primary" class="site-main flex-8-md grow-1 p">
+
+		<?php if (have_posts()) : ?>
+
+			<header class="page-header">
+				<h1 class="page-title">
+					<?php
+ printf(esc_html__('Search Results for: %s', 'mesh-themplate'), '<span>' . get_search_query() . '</span>'); ?>
+				</h1>
+			</header><!-- .page-header -->
+
+		<?php
+ while (have_posts()) : the_post(); get_template_part('template-parts/content', 'search'); endwhile; the_posts_navigation(); else : get_template_part('template-parts/content', 'none'); endif; ?>
+
+	</main><!-- #main -->
+	<?php get_sidebar(); ?>
+</div>
+
+<?php
+ get_footer(); 

@@ -1,0 +1,58 @@
+mixin php(code)
+   |<?php 
+   block
+   |;?>
+
+mixin tagS(tag)
+   |<#{tag} 
+   block
+   | >
+   
+mixin tagE(tag)
+   |</#{tag}>
+
+
+
+mixin phpTag(tag, className, id, property, classPhp) 
+   +tagS(tag)
+      if (classPhp)
+         | class='<?php !{classPhp}  ;?> #{className}'
+      if (id)
+         | id="!{id}"
+      if (property)
+         | <?php !{property}  ;?>
+   block
+   +tagE(tag)
+   //-#{tag}(clas=code, id=id)
+   //- block
+
+
+
+//- +phpTag("body", "bg-red" ,"", "body_class()", "body_class2()")
+//-   span mundo
+
+
+//- p("class='<?php echo hola mundo ?>'")
+
+mixin phpT(tag, className, id)
+   #{tag}(class!=className, id=id)&attributes(attributes)
+      block
+
+mixin get_header(className)
+   | <?php 
+   block 
+   |
+   | get_header('full', array('main' => '#{className}'));
+   | ?>
+
+mixin get_footer(className)
+   | <?php 
+   block
+   | get_footer('full', array('main' => '#{className}'));
+   | ?>
+
+
+mixin get_sidebar()
+   | <?php get_sidebar(); ?>
+
+

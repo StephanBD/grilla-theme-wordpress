@@ -1,0 +1,88 @@
+@use "sass:math";
+
+$wordpressEditor: ".is-desktop-preview";
+
+@import "defaultVariables.scss";
+@import "settings/functions";
+@import "settings/maps";
+@import "settings/mixins";
+
+#{$wordpressEditor} {
+  //-----------------------------------------------------//
+  @import "settings/base";
+  @import "settings/forms";
+  @import "settings/dark-mode";
+  @import "settings/buttons";
+  @import "settings/toggles";
+
+  //-----------------------------------------------------//
+  // @import "components.scss";
+  @import "components/animation";
+  @import "components/components";
+  @import "components/flipcard";
+  @import "components/navbar";
+  @import "components/profile";
+  @import "components/sidebar";
+  @import "components/toggle-menu";
+  @import "components/cards";
+  @import "components/zoomefect";
+  @import "components/mockups";
+
+  //-----------------------------------------------------//
+  // @import "layout.scss";
+  @import "layout/columns";
+  @import "layout/flex-2";
+  @import "layout/grid";
+  @import "layout/col";
+  @import "layout/layout";
+
+  //-----------------------------------------------------//
+  @import "wordpress.scss";
+  //-----------------------------------------------------//
+  // @import "utilities.scss";
+  @import "utilities/background-colors";
+  @import "utilities/border";
+  @import "utilities/margin-padding";
+  @import "utilities/utilities";
+  // @import "utilities/filter";
+  @import "utilities/images";
+  @import "utilities/modal";
+  @import "utilities/shadow";
+  // @import "utilities/shapes";
+  // @import "utilities/transform";
+  @import "utilities/width-height";
+  @import "utilities/typography";
+  @import "utilities/alignment";
+
+  //-----------------------------------------------------//
+  @import "debug.scss";
+  //-----------------------------------------------------//
+}
+
+// is-desktop-preview
+// edit-post-visual-editor
+
+// block-editor-writing-flow
+// is-root-container
+.is-root-container {
+  @extend .content-m;
+}
+
+// overwrite
+
+.editor-styles-wrapper {
+  @extend html;
+  * {
+    font-family: $fontFamily, sans-serif;
+  }
+  @extend main;
+}
+
+.wp-block {
+  max-width: 100%;
+  @include mx-(initial);
+}
+
+.is-desktop-preview .is-root-container {
+  max-width: 100%;
+}

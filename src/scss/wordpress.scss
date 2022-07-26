@@ -1,0 +1,163 @@
+.avatar-32 {
+  max-width: $padding * 3;
+}
+
+.comment-list {
+  list-style: none;
+}
+
+.menu-item {
+  position: relative;
+  margin-bottom: 0;
+  min-width: max-content;
+  a {
+    display: inline-block;
+    padding: Div($padding * 2, 2);
+    // padding: 16px;
+    // display: block;
+  }
+  li {
+    margin: 0;
+  }
+  .menu-dropdown-icon {
+    position: absolute;
+    right: 0;
+    border-left: 1px solid Color(gray);
+    @include from() {
+      display: none;
+      position: relative;
+    }
+  }
+}
+
+.sub-menu {
+  display: none;
+  min-width: max-content;
+  // width: 100%;
+  padding-left: Div($padding);
+  margin-left: Div($margin);
+
+  // margin-bottom: 0;
+  @include from() {
+    padding-left: 0;
+    margin-left: 0;
+    position: absolute;
+    & & {
+      top: 0;
+    }
+  }
+  @include bg-(white);
+  top: 100%;
+  & & {
+    left: 100%;
+  }
+  @include to($md) {
+    &.active {
+      display: block;
+      border-left: 1px solid Color(gray);
+    }
+  }
+}
+.menu-item-has-children {
+  @include from($md) {
+    &:hover > .sub-menu {
+      display: block;
+    }
+  }
+}
+
+.propiedad-list {
+  @include from() {
+    @include flex-12(6);
+  }
+  // cursor: pointer;
+  width: 100%;
+  box-shadow: 0 5px 7px rgba(46, 46, 46, 0.2);
+  margin-bottom: calc((var(--gap-col-flex, 0) * 2px));
+}
+
+// -------------------- the_custom_logo();
+// <a href="http://localhost/wordpress/mesh/" class="custom-logo-link" rel="home"><img width="187" height="183" src="http://localhost/wordpress/mesh/wp-content/uploads/2012/12/cropped-unicorn-wallpaper.jpg" class="custom-logo" alt="Unicorn Wallpaper"></a>
+
+// A
+.custom-logo-link {
+  @include box-em(50px);
+}
+// IMG
+.custom-logo {
+}
+
+.property-control {
+  min-width: 120px;
+  // width: 33%;
+  // text-align: center;
+  @include my-(16px);
+  // @include from($md) {
+  //   text-align: left;
+  // }
+}
+
+.site-header {
+  @include to($md) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+}
+
+.navbar-list {
+  @include to() {
+    // position: absolute;
+    // background: white;
+    @include bg-(white);
+    // border-bottom: 1px solid gray;
+    // padding: $padding;
+    // box-shadow: 0 5px 7px $shadow_color;
+  }
+}
+
+.post-thumbnail {
+  display: block;
+  min-height: 150px;
+  @include img-container;
+
+  @at-root & > img:nth-of-type(1),
+    .img-bg {
+    @include img-bg;
+  }
+}
+
+.entry-header {
+  position: relative;
+  // @include from() {
+  &::before {
+    position: absolute;
+    content: "";
+    background: red;
+    top: 0;
+    left: -16px;
+    height: 100%;
+    width: 4px;
+  }
+  // }
+}
+
+// the_posts_navigation
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+// gutenberg
+// div.wp-block-columns,
+// .wp-block {
+//   // margin: initial;
+//   // margin-top: initial;
+//   // margin-bottom: initial;
+// }
+
+// .wp-block-button__link {
+//   @extend .btn;
+// }
