@@ -9,7 +9,7 @@
 **install**
  1. clonar en la carpeta themes
  2. npm install
- 3. npm dev
+ 3. npm run dev
 
 **build**
  - npm run build

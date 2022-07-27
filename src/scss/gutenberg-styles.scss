@@ -83,6 +83,13 @@ $wordpressEditor: ".is-desktop-preview";
   @include mx-(initial);
 }
 
-.is-desktop-preview .is-root-container {
-  max-width: 100%;
+// .is-desktop-preview .is-root-container.full-width,
+// .is-root-container.full-width {
+//   max-width: 100% !important;
+// }
+
+// class="is-root-container block-editor-block-list__layout"
+
+.edit-post-visual-editor__content-area.full-width .is-root-container {
+  max-width: 100% !important;
 }

@@ -5,6 +5,8 @@ export function queryAll(node) {
 	return document.querySelectorAll(node);
 }
 
+const toggleCSSclasses = (el, ...cls) => cls.map(cl => el.classList.toggle(cl))
+
 // export function getXY(e) {
 // 	// Get the bounding rectangle of target
 // 	const rect = e.target.getBoundingClientRect();

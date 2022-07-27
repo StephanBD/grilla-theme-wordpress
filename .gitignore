@@ -2,4 +2,8 @@ node_modules
 mix-manifest.json
 mix.js.map
 .env
+inc
+template-parts
 
+*.php   
+!src/**/*.php
